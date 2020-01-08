@@ -33,8 +33,9 @@ class TieBaSpider(object):
         # 第一步构造request
         request = urllib.request.Request(url=detail_url, headers=self.headers)
 
-        # 发送请求
+        # 取消验证
         content = ssl._create_unverified_context()
+        # 发送请求
         response = urllib.request.urlopen(request, context=content)
 
         if response.status == 200:
